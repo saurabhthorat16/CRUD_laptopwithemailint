@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+    {% block title %}
+    <title>TWO STEP VARIFICATION</title>
+    {% endblock %}
+
+    {% block content %}
+    {% load crispy_forms_tags %}
+    <div class="container-fluid bg-secondary">
+        <div class="jumbotron">
+            <h1 class="text-danger" align="center">TWO STEP VARIFICATION</h1>
+
+            <form method="post">
+                {% csrf_token %}
+
+                <input type="text" name="otp" class="form-control" placeholder="OTP">
+                <br>
+                {% if messages %}
+
+                {% for i in messages %}
+
+                <h5>{{i}}</h5>
+                {% endfor %}
+                {% endif %}
+                <input type="submit" class="btn btn-info">
+            </form>
+        </div>
+    </div>
+    {% endblock %}

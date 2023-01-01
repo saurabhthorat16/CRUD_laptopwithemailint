@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+    {% block title %}
+    <title>LAPTOP FORM</title>
+    {% endblock %}
+
+    {%  block content %}
+    {% load crispy_forms_tags %}
+    <div class="container-fluid bg-secondary">
+        <h1 class="text-danger" align="center">LAPTOP FORM</h1>
+    </div>
+
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            {{form|crispy}}
+            <input type="submit" value="ADD LAPTOP DETAILS" class="btn btn-success btn-lg">
+            <input type="submit" value="RESET" class="btn btn-danger btn-lg float-right">
+        </form>
+        <div class="text-center">
+            <button class="btn btn-warning"><a href="{% url 'showlaptop_url' %}">SHOW LAPTOP DATA</a></button>
+        </div>
+    </div>
+    {% endblock %}
